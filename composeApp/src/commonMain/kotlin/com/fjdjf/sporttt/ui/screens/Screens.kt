@@ -1,9 +1,9 @@
 package com.fjdjf.sporttt.ui.screens
 
-val CALC = "calc"
-val INFO = "info"
-val CALENDAR = "calendar"
-val SETTINGS = "settings"
+val CALC = "Calculator"
+val INFO = "Learn"
+val CALENDAR = "Calendar"
+val SETTINGS = "Settings"
 val POLICY = "policy"
 val TERMS = "terms"
-val GAME = "game"
+val GAME = "Game"

@@ -54,6 +54,11 @@ fun BottomBar(
     Column(
         modifier = Modifier.fillMaxWidth().background(Color.Black).navigationBarsPadding()
     ) {
+        Divider(
+            modifier = Modifier.fillMaxWidth(),
+            color = Color.White.copy(0.5f),
+            thickness = 0.5.dp
+        )
         Row (
             Modifier.fillMaxWidth().padding(vertical = 12.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
@@ -68,7 +73,10 @@ fun BottomBar(
                     }
                 ) {
                     Icon(vectorResource(it.first), "",
-                        modifier = Modifier.size(34.dp), tint = if (screen == it.second) Color.White else Color.White.copy(alpha = 0.5f))
+                        modifier = Modifier.size(22.dp), tint = if (screen == it.second) Color.White else Color.White.copy(alpha = 0.5f))
+                    Spacer(Modifier.height(4.dp))
+                    Text(it.second, color = if (screen == it.second) Color.White else Color.White.copy(alpha = 0.5f),
+                        fontSize = 8.sp)
                 }
             }
 

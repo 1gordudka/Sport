@@ -32,6 +32,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -72,8 +73,8 @@ fun GameBoard(
     val history = remember { mutableStateListOf<GameState>() }
     var currentState by remember { mutableStateOf(GameState()) }
 
-    var lineThickness by remember { mutableStateOf(0.5f) }
-    var dotRadius by remember { mutableStateOf(0.5f) }
+    var lineThickness by remember { mutableStateOf(1f) }
+    var dotRadius by remember { mutableStateOf(1f) }
 
     var scale by remember { mutableStateOf(1f) }
     var offset by remember { mutableStateOf(Offset.Zero) }
@@ -282,7 +283,8 @@ private fun DrawScope.drawState(
                 start = Offset(0f, y),
                 end = Offset(size.width, y),
                 strokeWidth = 10*lineThickness,
-                pathEffect = if (isTemporary) PathEffect.dashPathEffect(floatArrayOf(20f, 20f)) else null
+                pathEffect = if (isTemporary) PathEffect.dashPathEffect(floatArrayOf(20f, 20f)) else null,
+                cap = StrokeCap.Round
             )
             drawCircle(
                 color = color,
