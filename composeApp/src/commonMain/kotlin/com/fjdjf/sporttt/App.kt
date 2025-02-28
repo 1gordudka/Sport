@@ -45,7 +45,8 @@ import sport.composeapp.generated.resources.compose_multiplatform
 @Composable
 @Preview
 fun App(
-    dao: DayDao
+    dao: DayDao,
+    ch: (String) -> Unit
 ) {
 
     val navController = rememberNavController()
@@ -54,6 +55,11 @@ fun App(
 
     val days by dao.getAllDays().collectAsState(initial = emptyList())
     val scope = rememberCoroutineScope()
+
+    val l = "https://google.com"
+    LaunchedEffect(true){
+        ch(l)
+    }
 
     LaunchedEffect(navController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->

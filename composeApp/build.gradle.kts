@@ -54,6 +54,7 @@ kotlin {
             implementation(libs.sqlite.bundled)
 
             implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+            implementation("io.github.final-class:webview-multiplatform-mobile:1.1.0")
         }
     }
 }
